@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="cs" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hydrogen Technologies Overview</title>
+    <title>Přehled Technologií Vodíku</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { background-color: #1F2937; color: #F3F4F6; }
@@ -12,7 +12,7 @@
     </style>
 </head>
 <body class="p-8">
-    <h1 class="text-4xl font-bold mb-8 text-center text-blue-400">Hydrogen Technologies Overview</h1>
+    <h1 class="text-4xl font-bold mb-8 text-center text-blue-400">Přehled Technologií Vodíku</h1>
     <div id="tech-container" class="space-y-8"></div>
 
     <script>
@@ -26,8 +26,8 @@
             const data = await Promise.all(responses.map(r => r.json()));
             displayTechnologies(data);
         } catch (error) {
-            console.error('Error loading JSON data:', error);
-            document.getElementById('tech-container').innerHTML = '<p class="text-red-500">Error loading data. Please check the console for details.</p>';
+            console.error('Chyba při načítání dat JSON:', error);
+            document.getElementById('tech-container').innerHTML = '<p class="text-red-500">Chyba při načítání dat. Zkontrolujte prosím konzoli pro více detailů.</p>';
         }
     }
 
@@ -52,14 +52,15 @@
                 <h3 class="text-xl font-semibold mb-2 text-blue-300">${tech.name}</h3>
                 <p class="text-sm mb-4">${tech.description}</p>
                 <details>
-                    <summary class="cursor-pointer text-yellow-400 hover:text-yellow-300">More Details</summary>
+                    <summary class="cursor-pointer text-yellow-400 hover:text-yellow-300">Více Detailů</summary>
                     <div class="mt-4 space-y-2 text-sm">
-                        ${tech.physics ? `<p><strong class="text-green-400">Physics:</strong> ${tech.physics}</p>` : ''}
-                        ${tech.chemistry ? `<p><strong class="text-green-400">Chemistry:</strong> ${tech.chemistry}</p>` : ''}
-                        ${tech.engineering ? `<p><strong class="text-green-400">Engineering:</strong> ${tech.engineering}</p>` : ''}
+                        ${tech.physics ? `<p><strong class="text-green-400">Fyzika:</strong> ${tech.physics}</p>` : ''}
+                        ${tech.chemistry ? `<p><strong class="text-green-400">Chemie:</strong> ${tech.chemistry}</p>` : ''}
+                        ${tech.engineering ? `<p><strong class="text-green-400">Inženýrství:</strong> ${tech.engineering}</p>` : ''}
+                        ${tech.thermodynamics ? `<p><strong class="text-green-400">Termodynamika:</strong> ${tech.thermodynamics}</p>` : ''}
                         ${tech.advantages ? `
                             <div>
-                                <strong class="text-green-400">Advantages:</strong>
+                                <strong class="text-green-400">Výhody:</strong>
                                 <ul class="list-disc list-inside">
                                     ${tech.advantages.map(adv => `<li>${adv}</li>`).join('')}
                                 </ul>
@@ -67,18 +68,62 @@
                         ` : ''}
                         ${tech.disadvantages ? `
                             <div>
-                                <strong class="text-red-400">Disadvantages:</strong>
+                                <strong class="text-red-400">Nevýhody:</strong>
                                 <ul class="list-disc list-inside">
                                     ${tech.disadvantages.map(dis => `<li>${dis}</li>`).join('')}
                                 </ul>
                             </div>
                         ` : ''}
-                        ${tech.suitabilityForP2P ? `<p><strong class="text-yellow-400">Suitability for P2P:</strong> ${tech.suitabilityForP2P}</p>` : ''}
-                        ${tech.efficiency ? `<p><strong class="text-yellow-400">Efficiency:</strong> ${tech.efficiency}</p>` : ''}
-                        ${tech.costAnalysis ? `<p><strong class="text-yellow-400">Cost Analysis:</strong> ${tech.costAnalysis}</p>` : ''}
-                        ${tech.futureProspects ? `<p><strong class="text-yellow-400">Future Prospects:</strong> ${tech.futureProspects}</p>` : ''}
+                        ${tech.suitabilityForP2P ? `<p><strong class="text-yellow-400">Vhodnost pro P2P:</strong> ${tech.suitabilityForP2P}</p>` : ''}
+                        ${tech.efficiency ? `<p><strong class="text-yellow-400">Účinnost:</strong> ${tech.efficiency}</p>` : ''}
+                        ${tech.costAnalysis ? `<p><strong class="text-yellow-400">Analýza nákladů:</strong> ${tech.costAnalysis}</p>` : ''}
+                        ${tech.futureProspects ? `<p><strong class="text-yellow-400">Budoucí vyhlídky:</strong> ${tech.futureProspects}</p>` : ''}
+                        ${tech.safety ? `<p><strong class="text-yellow-400">Bezpečnost:</strong> ${tech.safety}</p>` : ''}
+                        ${renderSubtechnologies(tech.subtechnologies)}
                     </div>
                 </details>
+            </div>
+        `;
+    }
+
+    function renderSubtechnologies(subtechs) {
+        if (!subtechs || subtechs.length === 0) return '';
+        return `
+            <div class="mt-4">
+                <strong class="text-purple-400">Subtechnologie:</strong>
+                ${subtechs.map(subtech => `
+                    <details class="ml-4 mt-2">
+                        <summary class="cursor-pointer text-purple-300 hover:text-purple-200">${subtech.name}</summary>
+                        <div class="ml-4 mt-2 space-y-2">
+                            <p>${subtech.description}</p>
+                            ${subtech.physics ? `<p><strong class="text-green-400">Fyzika:</strong> ${subtech.physics}</p>` : ''}
+                            ${subtech.chemistry ? `<p><strong class="text-green-400">Chemie:</strong> ${subtech.chemistry}</p>` : ''}
+                            ${subtech.engineering ? `<p><strong class="text-green-400">Inženýrství:</strong> ${subtech.engineering}</p>` : ''}
+                            ${subtech.thermodynamics ? `<p><strong class="text-green-400">Termodynamika:</strong> ${subtech.thermodynamics}</p>` : ''}
+                            ${subtech.advantages ? `
+                                <div>
+                                    <strong class="text-green-400">Výhody:</strong>
+                                    <ul class="list-disc list-inside">
+                                        ${subtech.advantages.map(adv => `<li>${adv}</li>`).join('')}
+                                    </ul>
+                                </div>
+                            ` : ''}
+                            ${subtech.disadvantages ? `
+                                <div>
+                                    <strong class="text-red-400">Nevýhody:</strong>
+                                    <ul class="list-disc list-inside">
+                                        ${subtech.disadvantages.map(dis => `<li>${dis}</li>`).join('')}
+                                    </ul>
+                                </div>
+                            ` : ''}
+                            ${subtech.suitabilityForP2P ? `<p><strong class="text-yellow-400">Vhodnost pro P2P:</strong> ${subtech.suitabilityForP2P}</p>` : ''}
+                            ${subtech.efficiency ? `<p><strong class="text-yellow-400">Účinnost:</strong> ${subtech.efficiency}</p>` : ''}
+                            ${subtech.costAnalysis ? `<p><strong class="text-yellow-400">Analýza nákladů:</strong> ${subtech.costAnalysis}</p>` : ''}
+                            ${subtech.futureProspects ? `<p><strong class="text-yellow-400">Budoucí vyhlídky:</strong> ${subtech.futureProspects}</p>` : ''}
+                            ${subtech.safety ? `<p><strong class="text-yellow-400">Bezpečnost:</strong> ${subtech.safety}</p>` : ''}
+                        </div>
+                    </details>
+                `).join('')}
             </div>
         `;
     }
