@@ -1,0 +1,456 @@
+{
+  "name": "Skladování",
+  "description": "Metody skladování vodíku pro P2P aplikace.",
+  "technologies": [
+    {
+      "name": "Fyzikální metody",
+      "description": "Skladování vodíku v jeho molekulární formě. Vhodné pro P2P aplikace v celém rozsahu 100kWp až 10MWp.",
+      "physics": "Využívají principy komprese plynů nebo změny skupenství pro zvýšení hustoty energie skladovaného vodíku. Řídí se stavovou rovnicí reálných plynů a zákony termodynamiky.",
+      "chemistry": "Vodík zůstává v molekulární formě H₂, bez chemických reakcí. Interakce s materiály nádob jsou klíčové pro bezpečnost a účinnost.",
+      "subtechnologies": [
+        {
+          "name": "Stlačený plyn",
+          "description": "Nejběžnější metoda skladování. Vhodná pro všechny velikosti P2P aplikací.",
+          "physics": "Využívá kompresi plynu pro zvýšení hustoty energie. Řídí se Van der Waalsovou rovnicí: (P + a/V²)(V - b) = RT, kde 'a' a 'b' jsou konstanty specifické pro vodík.",
+          "chemistry": "Minimální chemické interakce. Důležitá je však adsorpce vodíku na povrchu nádoby a potenciální vodíková křehkost materiálů.",
+          "engineering": "Vyžaduje vysokotlaké kompresory, obvykle vícestupňové s mezichladiči. Kritické je těsnění a výběr materiálů odolných vůči vodíkové křehkosti.",
+          "subtechnologies": [
+            {
+              "name": "Ocelové nádrže",
+              "description": "Tradiční a robustní řešení. Vhodné pro menší P2P aplikace 100kWp-1MWp.",
+              "physics": "Využívají elastickou deformaci oceli pod tlakem. Napětí ve stěně nádoby se řídí rovnicí σ = PR/2t, kde P je tlak, R poloměr a t tloušťka stěny.",
+              "chemistry": "Používají se nízkolegované oceli (např. 34CrMo4) s vysokou pevností a odolností vůči vodíkové křehkosti. Vnitřní povrch může být pokryt vrstvou niklu nebo chrómu pro snížení permeace vodíku.",
+              "engineering": "Typicky navrženy pro tlaky 200-300 bar. Využívají bezešvé trubky nebo svařované konstrukce. Kritické jsou svarové spoje a ventily.",
+              "thermodynamics": "Komprese je neizotermický proces. Teplota plynu při rychlé kompresi roste dle vztahu T₂ = T₁(P₂/P₁)^((γ-1)/γ), kde γ je poměr měrných tepelných kapacit (1.41 pro H₂).",
+              "safety": "Vyžadují pravidelné inspekce, tlakové zkoušky a kontroly úniků. Důležitá je ochrana proti vnějšímu poškození a požáru.",
+              "advantages": [
+                "Osvědčená technologie",
+                "Nízké investiční náklady",
+                "Široká dostupnost"
+              ],
+              "disadvantages": [
+                "Nižší kapacita na jednotku objemu",
+                "Omezení tlakem (typicky do 300 bar)",
+                "Vyšší hmotnost"
+              ],
+              "suitabilityForP2P": "Dobrá pro menší systémy. Ideální pro P2P aplikace 100kWp-1MWp s omezeným prostorem pro skladování.",
+              "efficiency": "Energetická náročnost komprese je cca 10-15% energie uloženého vodíku. Účinnost se snižuje s rostoucím tlakem.",
+              "costAnalysis": "Investiční náklady: 500-1000 €/kg H₂ kapacity. Provozní náklady jsou nízké, hlavně energie na kompresi."
+            },
+            {
+              "name": "Kompozitní nádrže",
+              "description": "Lehčí a odolnější vůči vyšším tlakům. Vhodné pro celý rozsah P2P aplikací 100kWp-10MWp.",
+              "physics": "Využívají princip laminátové konstrukce, kde vnitřní vrstva (liner) zajišťuje těsnost a vnější vrstvy vláken nesou mechanické zatížení. Napětí ve vláknech se řídí teorií kompozitních materiálů.",
+              "chemistry": "Liner je typicky z vysokomolekulárního polyethylenu (HDPE) nebo hliníku. Vlákna jsou nejčastěji uhlíková nebo skleněná, pojená epoxidovou pryskyřicí.",
+              "engineering": "Čtyři typy dle konstrukce: Typ I (celoocelové), Typ II (ocelový liner s částečným kompozitním ovinutím), Typ III (kovový liner s plným kompozitním ovinutím), Typ IV (plastový liner s plným kompozitním ovinutím).",
+              "thermodynamics": "Při rychlém plnění dochází k zahřívání plynu. Teplo je částečně absorbováno kompozitní strukturou, což vyžaduje pečlivý tepelný management.",
+              "safety": "Vyšší bezpečnost při mechanickém poškození díky tendenci k pomalému úniku spíše než katastrofickému selhání. Kritická je ochrana proti UV záření a chemikáliím.",
+              "advantages": [
+                "Vyšší kapacita díky vyšším tlakům (až 700 bar)",
+                "Nižší hmotnost",
+                "Vyšší bezpečnost"
+              ],
+              "disadvantages": [
+                "Vyšší investiční náklady",
+                "Omezená životnost (20-30 let)",
+                "Složitější inspekce a údržba"
+              ],
+              "suitabilityForP2P": "Výborná pro široký rozsah. Vhodné pro P2P aplikace 100kWp-10MWp, zejména při omezeném prostoru nebo potřebě mobility.",
+              "efficiency": "Energetická náročnost komprese je 15-20% energie uloženého vodíku pro tlaky 700 bar. Využití vícestupňové komprese s mezichladiči může snížit energetické ztráty.",
+              "costAnalysis": "Investiční náklady: 1000-2000 €/kg H₂ kapacity pro 700 bar systémy. Vyšší počáteční investice je kompenzována vyšší kapacitou a nižší hmotností.",
+              "futureProspects": "Vývoj směřuje k nanostrukturním materiálům pro liner a pokročilým uhlíkovým vláknům pro další snížení hmotnosti a zvýšení kapacity."
+            }
+          ]
+        },
+        {
+          "name": "Kapalný vodík",
+          "description": "Vysoká hustota energie, ale energeticky náročné. Vhodné pro větší P2P aplikace >5MWp.",
+          "physics": "Využívá zkapalnění vodíku při extrémně nízkých teplotách (-253°C). Řídí se zákony termodynamiky, zejména Joule-Thomsonovým jevem a Claudovým cyklem.",
+          "chemistry": "Při zkapalnění se vodík přeměňuje z para-vodíku na ortho-vodík, což je exotermický proces komplikující dlouhodobé skladování.",
+          "engineering": "Vyžaduje složité kryogenní systémy včetně vysoce účinných izolací a přesné kontroly tlaku a teploty.",
+          "thermodynamics": "Teoretická práce pro zkapalnění je 3.23 kWh/kg. Reálné systémy vyžadují 12-15 kWh/kg kvůli neideálním procesům a ztrátám.",
+          "subtechnologies": [
+            {
+              "name": "Dewarovy nádoby",
+              "description": "Přenosné nádoby pro menší množství. Méně vhodné pro stacionární P2P aplikace.",
+              "physics": "Využívají princip vícevrstvé superizolace a vakuového prostoru pro minimalizaci tepelných ztrát. Tepelný tok q = k(T₁-T₂)/d, kde k je tepelná vodivost izolace.",
+              "chemistry": "Vnitřní nádoba z austenitické nerezové oceli (např. 304L nebo 316L) pro odolnost vůči křehnutí při kryogenních teplotách. Vnější plášť často z uhlíkové oceli.",
+              "engineering": "Typická konstrukce zahrnuje vnitřní a vnější nádobu s vakuovým meziprostorem vyplněným vícevrstvou superizolací (alternující vrstvy aluminiové fólie a skleněného vlákna).",
+              "thermodynamics": "Hlavní mechanismy přenosu tepla: vedení přes zbytkový plyn ve vakuovém prostoru, radiace (minimalizovaná superizolací) a vedení přes podpěry a potrubí.",
+              "safety": "Vybaveny přetlakovými ventily pro uvolnění odpařeného vodíku. Kritická je prevence vniknutí vzduchu, který by mohl zkondenzovat a způsobit explozivní směs.",
+              "advantages": [
+                "Přenosnost",
+                "Dobrá izolace",
+                "Vhodné pro menší množství"
+              ],
+              "disadvantages": [
+                "Omezená kapacita",
+                "Vyšší ztráty odparem",
+                "Nevhodné pro dlouhodobé skladování"
+              ],
+              "suitabilityForP2P": "Nízká pro stacionární aplikace. Může být užitečné pro mobilní P2P systémy nebo krátkodobé skladování v rozsahu 100kWp-1MWp.",
+              "efficiency": "Typické ztráty odparem jsou 0.5-2% denně, závisí na velikosti nádoby a kvalitě izolace.",
+              "costAnalysis": "Investiční náklady: 50-100 €/L skladovací kapacity. Provozní náklady jsou vysoké kvůli kontinuálním ztrátám odparem."
+            },
+            {
+              "name": "Kryogenní nádrže",
+              "description": "Velkokapacitní skladování. Vhodné pro větší P2P aplikace >5MWp s dlouhodobým skladováním.",
+              "physics": "Využívají podobné principy jako Dewarovy nádoby, ale ve větším měřítku. Tepelné ztráty se řídí Fourierovým zákonem vedení tepla a Stefan-Boltzmannovým zákonem pro radiaci.",
+              "chemistry": "Vnitřní nádoba z 9% niklové oceli nebo austenitické nerezové oceli pro vysokou pevnost a houževnatost při kryogenních teplotách. Vnější plášť z uhlíkové oceli.",
+              "engineering": "Dvoustěnná konstrukce s vícevrstvou superizolací a vakuovým meziprostorem. Velké nádrže mohou mít perlitovou izolaci místo vakua. Sofistikované systémy pro management odpařeného plynu (boil-off).",
+              "thermodynamics": "Tepelný tok do nádrže Q = UA(T_ambient - T_LH2), kde U je celkový součinitel prostupu tepla a A je plocha nádrže. Typické hodnoty U jsou 0.1-0.5 W/m²K.",
+              "safety": "Vybaveny komplexními bezpečnostními systémy včetně redundantních přetlakových ventilů, detektorů vodíku a systémů pro řízené spalování odpařeného vodíku (flare stack).",
+              "advantages": [
+                "Vysoká hustota skladování",
+                "Vhodné pro dlouhodobé skladování",
+                "Nízké ztráty při velkých objemech"
+              ],
+              "disadvantages": [
+                "Vysoké energetické nároky na zkapalnění",
+                "Složitý a drahý systém",
+                "Kontinuální ztráty odparem"
+              ],
+              "suitabilityForP2P": "Dobrá pro velké systémy. Vhodné pro P2P aplikace >5MWp s potřebou dlouhodobého skladování velkých množství vodíku.",
+              "efficiency": "Energetická náročnost zkapalnění je 30-40% energie uloženého vodíku. Ztráty odparem jsou typicky 0.1-0.5% denně pro velké nádrže.",
+              "costAnalysis": "Investiční náklady: 20-50 €/kg H₂ kapacity pro velké systémy. Vysoké provozní náklady kvůli energii potřebné pro zkapalnění a udržování kryogenních teplot.",
+              "futureProspects": "Vývoj směřuje k aktivním chladicím systémům pro minimalizaci ztrát odparem a integraci s kryogenními turbínami pro rekuperaci energie při expanzi vodíku."
+            }
+          ]
+        },
+        {
+          "name": "Kryo-komprimované",
+          "description": "Kombinuje výhody kapalného a stlačeného vodíku. Potenciálně vhodné pro střední až velké P2P aplikace 1-10MWp.",
+          "physics": "Využívá synergii mezi vysokým tlakem a nízkou teplotou pro dosažení vysoké hustoty energie. Řídí se komplexními termodynamickými vztahy pro reálné plyny při nízkých teplotách a vysokých tlacích.",
+          "chemistry": "Minimální chemické interakce, ale kritická je kompatibilita materiálů s kryogenními teplotami a vysokými tlaky současně.",
+          "engineering": "Vyžaduje pokročilé materiály a konstrukce schopné odolávat extrémním podmínkám. Klíčová je optimalizace tepelné izolace a managementu tlaku.",
+          "thermodynamics": "Pracuje v superkritické oblasti fázového diagramu vodíku (kritický bod: -240°C, 13 bar). Hustota vodíku se významně mění s teplotou a tlakem dle stavové rovnice reálných plynů.",
+          "subtechnologies": [
+            {
+              "name": "Hybridní nádrže",
+              "description": "Flexibilní řešení pro různé podmínky. Vhodné pro P2P aplikace 1-10MWp s proměnlivou poptávkou.",
+              "physics": "Umožňuje plynulý přechod mezi kapalnou a plynnou fází v závislosti na tlaku a teplotě. Využívá nelineární vztah mezi hustotou a tlakem při nízkých teplotách.",
+              "chemistry": "Vnitřní nádoba z pokročilých slitin (např. Al-Li) nebo kompozitů s kovovým linerem. Vnější kompozitní obal pro vysokotlakou pevnost.",
+              "engineering": "Komplexní systém zahrnující kryogenní izolaci, vysokotlaké komponenty a sofistikovaný systém řízení tlaku a teploty. Může využívat aktivní chlazení pro optimalizaci skladovací hustoty.",
+              "thermodynamics": "Operuje v širokém rozsahu stavů od kryogenní kapaliny (-253°C, 1 bar) po vysokotlaký plyn (až 350 bar při ambientní teplotě). Umožňuje využití latentního tepla při expanzi pro zvýšení celkové účinnosti.",
+              "safety": "Vyžaduje komplexní bezpečnostní systémy pro zvládání jak kryogenních rizik, tak vysokotlakých stavů. Kritická je prevence rychlé fázové změny a přetlakování.",
+              "advantages": [
+                "Vyšší hustota energie než stlačený plyn",
+                "Nižší energetické nároky než kapalný vodík",
+                "Flexibilita v provozních podmínkách"
+              ],
+              "disadvantages": [
+                "Složitý systém",
+                "Vyšší investiční náklady",
+                "Omezené praktické zkušenosti"
+              ],
+              "suitabilityForP2P": "Dobrá pro střední až velké systémy. Vhodné pro P2P aplikace 1-10MWp s potřebou flexibility a vyšší hustoty skladování.",
+              "efficiency": "Energetická náročnost plnění je 15-25% energie uloženého vodíku, závisí na počátečních a konečných podmínkách. Potenciál pro rekuperaci energie při expanzi.",
+              "costAnalysis": "Investiční náklady: 1500-3000 €/kg H₂ kapacity. Vyšší počáteční investice kompenzována vyšší flexibilitou a potenciálně nižšími provozními náklady.",
+              "futureProspects": "Aktivní výzkum v oblasti materiálů odolných vůči vodíkové křehkosti při kryogenních teplotách a vysokých tlacích. Potenciál pro integraci s pokročilými termodynamickými cykly pro zvýšení celkové účinnosti systému."
+            },
+            {
+              "name": "Izolované tlakové nádoby",
+              "description": "Vysoce účinné dlouhodobé skladování. Ideální pro větší P2P aplikace 5-10MWp s sezónním ukládáním.",
+              "physics": "Využívá princip adiabatické komprese a expanze pro minimalizaci tepelných ztrát. Pracuje s vodíkem v širokém rozsahu teplot a tlaků.",
+              "chemistry": "Vnitřní povrch může být potažen bariérovými vrstvami (např. AlOₓ) pro minimalizaci permeace vodíku. Kritická je kompatibilita materiálů s vodíkem při cyklickém zatěžování.",
+              "engineering": "Vícevrstvá konstrukce kombinující vysokotlakou nádobu s pokročilou tepelnou izolací. Může zahrnovat aktivní tepelné management pro optimalizaci skladovacích podmínek.",
+              "thermodynamics": "Využívá vztah mezi tlakem, teplotou a objemem pro minimalizaci energetických ztrát při plnění a vyprazdňování. Potenciál pro 'bezeztrátové' skladování při správném nastavení tepelné izolace.",
+              "safety": "Vyžaduje pokročilé monitorovací a řídicí systémy pro prevenci přetlakování a kontrolu tepelných podmínek. Důležitá je ochrana proti vnějším vlivům a požáru.",
+              "advantages": [
+                "Velmi vysoká hustota skladování",
+                "Nízké ztráty při dlouhodobém skladování",
+                "Možnost skladování v kapalném i plynném stavu"
+              ],
+              "disadvantages": [
+                "Velmi vysoké investiční náklady",
+                "Technologická náročnost",
+                "Omezené komerční zkušenosti"
+              ],
+              "suitabilityForP2P": "Výborná pro velké systémy s dlouhodobým skladováním. Ideální pro P2P aplikace 5-10MWp s potřebou sezónního ukládání energie.",
+              "efficiency": "Potenciál pro velmi vysokou účinnost (>90%) při správném návrhu a provozu. Energetické ztráty mohou být minimalizovány využitím tepla komprese a chladu expanze.",
+              "costAnalysis": "Investiční náklady: 2000-4000 €/kg H₂ kapacity. Vysoké počáteční náklady mohou být kompenzovány velmi nízkými provozními náklady a dlouhou životností.",
+              "futureProspects": "Výzkum se zaměřuje na pokročilé izolační materiály (např. aerogely) a integraci s termálními úložišti pro další zvýšení účinnosti. Potenciál pro využití v kombinaci s obnovitelnými zdroji energie pro dlouhodobé sezónní skladování."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Materiálové metody",
+      "description": "Skladování vodíku vázaného v materiálech. Potenciálně vhodné pro menší až střední P2P aplikace 100kWp-5MWp.",
+      "physics": "Využívají fyzikální nebo chemické vazby mezi vodíkem a hostitelským materiálem. Zahrnují procesy adsorpce, absorpce a chemické reakce.",
+      "chemistry": "Interakce vodíku s materiály může být fyzikální (van der Waalsovy síly) nebo chemická (tvorba hydridů). Klíčová je reverzibilita procesu a kinetika reakcí.",
+      "engineering": "Vyžaduje optimalizaci tepelného managementu, protože procesy absorpce a desorpce jsou obvykle spojeny s významnými tepelnými efekty.",
+      "subtechnologies": [
+        {
+          "name": "Metalhydridy",
+          "description": "Skladování vodíku v kovových sloučeninách. Vhodné pro menší P2P aplikace 100kWp-1MWp.",
+          "physics": "Využívá absorpci vodíku do krystalové mřížky kovu nebo slitiny. Řídí se Sievertsovým zákonem: c = K√P, kde c je koncentrace H v kovu a P je tlak H₂.",
+          "chemistry": "Obecná reakce: M + x/2 H₂ ⇌ MHₓ + teplo, kde M je kov nebo slitina. Reakce je exotermická při absorpci a endotermická při desorpci.",
+          "engineering": "Vyžaduje efektivní tepelný management pro odvod tepla při plnění a přívod tepla při vyprazdňování. Důležitá je optimalizace velikosti částic pro rychlou kinetiku.",
+          "subtechnologies": [
+            {
+              "name": "AB5 slitiny",
+              "description": "Nízká kapacita, ale rychlé nabíjení/vybíjení. Vhodné pro P2P aplikace 100-500kWp s častými cykly.",
+              "physics": "A je obvykle vzácná zemina (např. La), B je přechodný kov (např. Ni). Typická struktura je hexagonální s vodíkem v intersticiálních polohách.",
+              "chemistry": "Příklad: LaNi₅ + 3H₂ ⇌ LaNi₅H₆ + teplo (30.8 kJ/mol H₂). Kapacita typicky 1-2 hm% H₂.",
+              "engineering": "Pracovní tlaky 1-10 bar, teploty 20-100°C. Vyžaduje aktivaci materiálu před prvním použitím.",
+              "thermodynamics": "Entalpie reakce ΔH ≈ -30 kJ/mol H₂, entropie ΔS ≈ -108 J/mol·K H₂. Rovnovážný tlak určen van 't Hoffovou rovnicí: ln(P/P₀) = ΔH/R·(1/T₀ - 1/T)",
+              "advantages": [
+                "Rychlé nabíjení a vybíjení",
+                "Nízký provozní tlak",
+                "Dobře zvládnutá technologie"
+              ],
+              "disadvantages": [
+                "Nízká gravimetrická kapacita",
+                "Vysoká cena slitiny",
+                "Citlivost na nečistoty"
+              ],
+              "suitabilityForP2P": "Dobrá pro malé systémy s častými cykly. Ideální pro P2P aplikace 100-500kWp vyžadující rychlou odezvu.",
+              "efficiency": "Energetická účinnost cyklu 90-95%. Hlavní ztráty jsou spojeny s tepelným managementem.",
+              "costAnalysis": "Investiční náklady: 3000-5000 €/kg H₂ kapacity. Vysoké náklady na materiál kompenzovány nízkými provozními náklady a dlouhou životností.",
+              "futureProspects": "Výzkum se zaměřuje na zvýšení kapacity a snížení ceny substitucí vzácných zemin levnějšími prvky. Potenciál pro využití v kombinaci s palivovými články pro efektivní tepelnou integraci."
+            },
+            {
+              "name": "AB2 slitiny",
+              "description": "Vyšší kapacita než AB5. Vhodné pro P2P aplikace 500kWp-1MWp.",
+              "physics": "A je obvykle Ti, Zr nebo jejich směs, B je přechodný kov (V, Cr, Mn, Fe). Struktura typu Laves fáze (C14, C15 nebo C36).",
+              "chemistry": "Příklad: TiCr₁.₈ + 2H₂ ⇌ TiCr₁.₈H₄ + teplo. Kapacita typicky 2-3 hm% H₂.",
+              "engineering": "Pracovní tlaky 10-50 bar, teploty 0-100°C. Vyžaduje pečlivou kontrolu složení pro optimalizaci vlastností.",
+              "thermodynamics": "Entalpie reakce ΔH ≈ -20 až -30 kJ/mol H₂. Vykazuje často plató tlaku s hysterezí mezi absorpcí a desorpcí.",
+              "advantages": [
+                "Vyšší kapacita než AB5",
+                "Nižší cena než AB5",
+                "Dobrá kinetika reakce"
+              ],
+              "disadvantages": [
+                "Vyšší desorpční teplota",
+                "Náchylnost k degradaci při cyklování",
+                "Citlivost na nečistoty"
+              ],
+              "suitabilityForP2P": "Dobrá pro střední systémy. Vhodné pro P2P aplikace 500kWp-1MWp s méně častými cykly.",
+              "efficiency": "Energetická účinnost cyklu 85-90%. Ztráty jsou spojeny především s tepelným managementem a hysterezí při cyklování.",
+              "costAnalysis": "Investiční náklady: 2500-4000 €/kg H₂ kapacity. Nižší cena materiálu než u AB5, ale vyšší náklady na tepelný management.",
+              "futureProspects": "Výzkum se zaměřuje na optimalizaci složení pro zvýšení kapacity a snížení hystereze. Potenciál pro využití v mobilních aplikacích díky vyšší gravimetrické kapacitě."
+            },
+            {
+              "name": "Slitiny na bázi hořčíku",
+              "description": "Vysoká kapacita, ale pomalé nabíjení/vybíjení. Potenciál pro P2P aplikace 1-2MWp s méně častými cykly.",
+              "physics": "Využívá schopnost hořčíku absorbovat velké množství vodíku. Struktura se mění z hexagonální (Mg) na tetragonální (MgH₂).",
+              "chemistry": "Základní reakce: Mg + H₂ ⇌ MgH₂ + teplo (75 kJ/mol H₂). Kapacita až 7.6 hm% H₂ pro čistý MgH₂.",
+              "engineering": "Vyžaduje vysoké teploty (300-400°C) pro praktické využití. Klíčová je katalýza povrchu pro zlepšení kinetiky reakce.",
+              "thermodynamics": "Entalpie reakce ΔH ≈ -75 kJ/mol H₂, entropie ΔS ≈ -135 J/mol·K H₂. Vysoká stabilita hydridu vyžaduje vysoké teploty pro desorpci.",
+              "advantages": [
+                "Vysoká gravimetrická kapacita",
+                "Nízká cena materiálu",
+                "Potenciál pro vyšší kapacitu systému"
+              ],
+              "disadvantages": [
+                "Vysoká desorpční teplota",
+                "Pomalá kinetika",
+                "Degradace při cyklování"
+              ],
+              "suitabilityForP2P": "Střední, s potenciálem pro zlepšení. Může být vhodné pro P2P aplikace 1-2MWp s dlouhodobějším skladováním a méně častými cykly.",
+              "efficiency": "Energetická účinnost cyklu 70-80%. Významné ztráty spojené s vysokoteplotním provozem.",
+              "costAnalysis": "Investiční náklady: 2000-3500 €/kg H₂ kapacity. Nízká cena materiálu, ale vysoké náklady na tepelný management a katalyzátory.",
+              "futureProspects": "Intenzivní výzkum v oblasti nanostrukturních materiálů a katalyzátorů pro snížení provozní teploty a zlepšení kinetiky. Potenciál pro vysokoenergetické aplikace."
+            }
+          ]
+        },
+        {
+          "name": "Chemické hydridy",
+          "description": "Vysoká hustota energie, ale složitá regenerace. Méně vhodné pro běžné P2P aplikace.",
+          "physics": "Využívá chemické reakce mezi vodíkem a sloučeninami lehkých prvků. Často zahrnuje hydrolýzu nebo termolýzu.",
+          "chemistry": "Typické reakce zahrnují uvolňování vodíku z hydridů boru, dusíku nebo hliníku při reakci s vodou nebo tepelným rozkladem.",
+          "engineering": "Vyžaduje sofistikované systémy pro kontrolu reakce a management vedlejších produktů. Klíčová je efektivní regenerace materiálu.",
+          "subtechnologies": [
+            {
+              "name": "Borohydrid sodný",
+              "description": "Vysoký obsah vodíku, ale drahá regenerace. Potenciálně vhodné pro speciální P2P aplikace 1-5MWp.",
+              "physics": "Využívá hydrolýzu NaBH₄ v přítomnosti katalyzátoru. Reakce je exotermická a probíhá při pokojové teplotě.",
+              "chemistry": "NaBH₄ + 2H₂O → NaBO₂ + 4H₂ + teplo (300 kJ/mol NaBH₄). Teoretická kapacita 10.8 hm% H₂.",
+              "engineering": "Vyžaduje precizní kontrolu pH a koncentrace pro optimální průběh reakce. Kritická je separace a recyklace vedlejších produktů.",
+              "thermodynamics": "Reakce je silně exotermická, což umožňuje využití tepla pro další aplikace. Gibbsova energie reakce ΔG = -335 kJ/mol při 25°C.",
+              "advantages": [
+                "Velmi vysoký obsah vodíku",
+                "Stabilní a bezpečné skladování",
+                "Možnost skladování v kapalné formě"
+              ],
+              "disadvantages": [
+                "Složitá a energeticky náročná regenerace",
+                "Vysoká cena materiálu",
+                "Omezená životnost katalyzátoru"
+              ],
+              "suitabilityForP2P": "Nízká pro běžné aplikace. Může být vhodné pro speciální P2P aplikace 1-5MWp s požadavkem na vysokou hustotu energie a bezpečnost.",
+              "efficiency": "Účinnost uvolnění vodíku >90%, ale celková účinnost cyklu včetně regenerace je <50% kvůli energeticky náročné regeneraci.",
+              "costAnalysis": "Investiční náklady: 4000-6000 €/kg H₂ kapacity. Vysoké náklady na materiál a systém regenerace.",
+              "futureProspects": "Výzkum se zaměřuje na vývoj účinnějších metod regenerace a nových katalyzátorů. Potenciál pro použití v bezpečnostně kritických aplikacích."
+            },
+            {
+              "name": "Aminoboran",
+              "description": "Velmi vysoký obsah vodíku, ale drahý materiál. Zatím nevhodné pro praktické P2P aplikace.",
+              "physics": "Využívá termolýzu NH₃BH₃ pro uvolnění vodíku. Proces probíhá ve třech krocích při různých teplotách.",
+              "chemistry": "NH₃BH₃ → [NH₂BH₂] + H₂ (110°C)\n[NH₂BH₂] → [NHBH] + H₂ (150°C)\n[NHBH] → BN + H₂ (>500°C)\nCelková reakce: NH₃BH₃ → BN + 3H₂",
+              "engineering": "Vyžaduje přesnou kontrolu teploty pro optimalizaci uvolňování vodíku. Klíčová je prevence tvorby nežádoucích vedlejších produktů (např. borazin).",
+              "thermodynamics": "Celková entalpie reakce ΔH ≈ -21 kJ/mol H₂. Proces je mírně endotermický, ale méně než u konvenčních metalhydridů.",
+              "advantages": [
+                "Extrémně vysoký obsah vodíku (19.6 hm% teoreticky)",
+                "Stabilní pevná látka při pokojové teplotě",
+                "Potenciál pro vysokou čistotu vodíku"
+              ],
+              "disadvantages": [
+                "Velmi vysoká cena materiálu",
+                "Složitá regenerace",
+                "Omezené praktické zkušenosti"
+              ],
+              "suitabilityForP2P": "Velmi nízká v současnosti. Potenciál pro budoucí využití v P2P aplikacích, pokud se vyřeší problémy s regenerací a cenou.",
+              "efficiency": "Účinnost uvolnění vodíku >95%, ale celková účinnost cyklu je extrémně nízká (<30%) kvůli složité regeneraci.",
+              "costAnalysis": "Investiční náklady: >10,000 €/kg H₂ kapacity. Extrémně vysoké náklady na materiál a systém regenerace.",
+              "futureProspects": "Intenzivní výzkum v oblasti nových metod syntézy a regenerace. Potenciál pro využití v aplikacích vyžadujících extrémně vysokou hustotu energie."
+            }
+          ]
+        },
+        {
+          "name": "Adsorbenty",
+          "description": "Skladování vodíku na povrchu materiálů. Potenciál pro budoucí P2P aplikace, ale zatím omezené praktické využití.",
+          "physics": "Využívá fyzikální adsorpci vodíku na povrchu porézních materiálů. Řídí se principy Langmuirovy nebo BET adsorpční izotermy.",
+          "chemistry": "Interakce vodíku s povrchem jsou slabé van der Waalsovy síly. Adsorpční entalpie typicky 4-8 kJ/mol H₂.",
+          "engineering": "Vyžaduje materiály s extrémně vysokým specifickým povrchem a optimalizovanou strukturou pórů. Klíčová je tepelná vodivost materiálu pro efektivní odvod adsorpčního tepla.",
+          "subtechnologies": [
+            {
+              "name": "Aktivní uhlí",
+              "description": "Nízká cena, ale nízká kapacita. Potenciálně vhodné pro menší P2P aplikace 100-500kWp.",
+              "physics": "Využívá mikroporézní strukturu uhlíku s vysokým specifickým povrchem (>2000 m²/g). Adsorpce řízena Dubinin-Radushkevichovou rovnicí.",
+              "chemistry": "Fyzikální adsorpce H₂ na povrchu uhlíku. Možnost dopování alkalickými kovy pro zvýšení adsorpční entalpie.",
+              "engineering": "Vyžaduje kryogenní teploty (-196°C) nebo vysoké tlaky (>100 bar) pro dosažení praktické kapacity. Důležitá je optimalizace distribuce velikosti pórů.",
+              "thermodynamics": "Adsorpční entalpie 4-6 kJ/mol H₂. Izosterické teplo adsorpce klesá s rostoucím pokrytím povrchu.",
+              "advantages": [
+                "Nízká cena materiálu",
+                "Dobrá tepelná stabilita",
+                "Možnost úpravy povrchových vlastností"
+              ],
+              "disadvantages": [
+                "Nízká gravimetrická a volumetrická kapacita",
+                "Vyžaduje velmi nízké teploty nebo vysoké tlaky",
+                "Citlivost na nečistoty"
+              ],
+              "suitabilityForP2P": "Nízká až střední. Potenciálně vhodné pro menší P2P aplikace 100-500kWp s nízkými náklady na prioritě.",
+              "efficiency": "Energetická účinnost cyklu 70-80%. Významné ztráty spojené s chlazením nebo kompresí.",
+              "costAnalysis": "Investiční náklady: 1000-2000 €/kg H₂ kapacity. Nízké náklady na materiál, ale vysoké náklady na kryogenní systém nebo vysokotlaké komponenty.",
+              "futureProspects": "Výzkum se zaměřuje na vývoj nových forem uhlíku (graphene, nanotrubice) pro zvýšení kapacity. Potenciál pro využití v kombinaci s metalhydridy pro zlepšení tepelného managementu."
+            },
+            {
+              "name": "Kovově-organické struktury (MOF)",
+              "description": "Vysoká kapacita, ale drahé. Potenciál pro budoucí P2P aplikace 500kWp-2MWp.",
+              "physics": "Využívá krystalické porézní struktury složené z kovových center propojených organickými linkery. Extrémně vysoký specifický povrch (>6000 m²/g).",
+              "chemistry": "Fyzikální adsorpce H₂ na povrchu a v pórech MOF. Možnost ladění adsorpčních vlastností změnou kovu nebo organického linkeru.",
+              "engineering": "Vyžaduje optimalizaci syntézy pro zajištění stability a reprodukovatelnosti. Kritická je aktivace materiálu pro odstranění rozpouštědel z pórů.",
+              "thermodynamics": "Adsorpční entalpie 5-10 kJ/mol H₂, v závislosti na struktuře MOF. Možnost zvýšení entalpie dopováním nebo vytvořením otevřených kovových center.",
+              "advantages": [
+                "Velmi vysoká povrchová plocha",
+                "Nastavitelná velikost pórů",
+                "Potenciál pro vysokou kapacitu skladování"
+              ],
+              "disadvantages": [
+                "Vysoká cena",
+                "Citlivost na vlhkost a nečistoty",
+                "Omezená tepelná a chemická stabilita"
+              ],
+              "suitabilityForP2P": "Střední s potenciálem pro zlepšení. Může být vhodné pro budoucí P2P aplikace 500kWp-2MWp s požadavkem na vysokou hustotu skladování.",
+              "efficiency": "Energetická účinnost cyklu 75-85%. Ztráty spojené s chlazením nebo kompresí, ale potenciálně nižší než u aktivního uhlí díky vyšší adsorpční entalpii.",
+              "costAnalysis": "Investiční náklady: 5000-10000 €/kg H₂ kapacity. Vysoké náklady na syntézu materiálu, ale potenciál pro snížení s rozvojem výrobních technologií.",
+              "futureProspects": "Intenzivní výzkum v oblasti nových struktur MOF s optimalizovanými vlastnostmi pro skladování vodíku. Potenciál pro využití v aplikacích vyžadujících vysokou gravimetrickou kapacitu a flexibilitu provozu."
+            },
+            {
+              "name": "Zeolity",
+              "description": "Stabilní struktura, ale nízká kapacita. Omezené využití pro P2P aplikace.",
+              "physics": "Využívá krystalické alumosilikáty s pravidelnou strukturou pórů a kanálů. Adsorpce probíhá především v mikropórech (<2 nm).",
+              "chemistry": "Fyzikální adsorpce H₂ na vnitřním povrchu zeolitů. Možnost modifikace poměru Si/Al pro úpravu adsorpčních vlastností.",
+              "engineering": "Vyžaduje aktivaci materiálu pro odstranění vody z pórů. Důležitá je optimalizace velikosti částic pro zlepšení kinetiky adsorpce/desorpce.",
+              "thermodynamics": "Adsorpční entalpie 5-8 kJ/mol H₂. Izosterické teplo adsorpce závisí na typu zeolitu a obsahu kationtů.",
+              "advantages": [
+                "Vysoká chemická a tepelná stabilita",
+                "Nízká cena přírodních zeolitů",
+                "Možnost úpravy struktury"
+              ],
+              "disadvantages": [
+                "Nízká kapacita skladování vodíku",
+                "Vyžaduje velmi nízké teploty",
+                "Omezená reverzibilita adsorpce"
+              ],
+              "suitabilityForP2P": "Nízká. Omezené využití pro P2P aplikace kvůli nízké kapacitě skladování.",
+              "efficiency": "Energetická účinnost cyklu 65-75%. Významné ztráty spojené s chlazením a desorpcí.",
+              "costAnalysis": "Investiční náklady: 1500-3000 €/kg H₂ kapacity. Nízké náklady na materiál, ale vysoké náklady na kryogenní systém.",
+              "futureProspects": "Výzkum se zaměřuje na syntézu nových typů zeolitů s větší velikostí pórů a vyšší adsorpční kapacitou. Potenciál pro využití v kombinovaných systémech pro čištění a skladování vodíku."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Nově vznikající technologie",
+      "description": "Inovativní metody skladování vodíku ve fázi výzkumu a vývoje. Potenciál pro budoucí P2P aplikace.",
+      "physics": "Využívají různé fyzikální a chemické principy pro dosažení vysoké hustoty skladování vodíku při mírnějších podmínkách.",
+      "chemistry": "Zahrnují nové materiály a chemické reakce pro reverzibilní ukládání vodíku.",
+      "subtechnologies": [
+        {
+          "name": "Clathráty",
+          "description": "Vodní struktury zachycující molekuly vodíku. Potenciál pro skladování při mírných teplotách a tlacích.",
+          "physics": "Využívá tvorbu krystalických struktur vody (clathrate hydrates), které zachycují molekuly H₂ v kavitách.",
+          "chemistry": "H₂O + H₂ → H₂@H₂O (clathrát). Teoretická kapacita až 5.3 hm% H₂.",
+          "engineering": "Vyžaduje optimalizaci tvorby a stability clathrátů. Klíčová je kontrola teploty a tlaku pro udržení struktury.",
+          "advantages": [
+            "Potenciál pro skladování při teplotách nad 0°C",
+            "Využití vody jako bezpečného hostitelského materiálu",
+            "Nízká cena základních materiálů"
+          ],
+          "disadvantages": [
+            "Zatím nízká praktická kapacita",
+            "Pomalá kinetika tvorby clathrátů",
+            "Omezené praktické zkušenosti"
+          ],
+          "suitabilityForP2P": "Nízká v současnosti, ale s potenciálem pro budoucí využití v P2P aplikacích 100kWp-1MWp.",
+          "futureProspects": "Výzkum se zaměřuje na použití aditiv pro stabilizaci struktury a zrychlení kinetiky. Potenciál pro využití v kombinaci s jinými metodami skladování."
+        },
+        {
+          "name": "Kapalné organické nosiče vodíku (LOHC)",
+          "description": "Organické sloučeniny schopné reverzibilně vázat a uvolňovat vodík. Potenciál pro bezpečné skladování při ambientních podmínkách.",
+          "physics": "Využívá hydrogenaci a dehydrogenaci organických sloučenin. Umožňuje skladování vodíku v kapalné formě při pokojové teplotě a atmosférickém tlaku.",
+          "chemistry": "Příklad: C₆H₁₂ (cyklohexan) + 3H₂ ⇌ C₆H₆ (benzen) + 3H₂. Kapacita 6-8 hm% H₂.",
+          "engineering": "Vyžaduje vývoj účinných katalyzátorů pro rychlou a reverzibilní reakci. Důležitá je tepelná integrace pro využití reakčního tepla.",
+          "advantages": [
+            "Skladování při ambientních podmínkách",
+            "Využití existující infrastruktury pro kapalná paliva",
+            "Vysoká bezpečnost skladování"
+          ],
+          "disadvantages": [
+            "Energeticky náročná dehydrogenace",
+            "Potřeba přepravy nosičů zpět k místu hydrogenace",
+            "Možná degradace nosiče při cyklování"
+          ],
+          "suitabilityForP2P": "Střední s potenciálem pro zlepšení. Může být vhodné pro P2P aplikace 1-5MWp s požadavkem na bezpečné dlouhodobé skladování.",
+          "futureProspects": "Intenzivní výzkum nových organických nosičů s vyšší kapacitou a nižší energií dehydrogenace. Potenciál pro využití v distribuovaných energetických systémech."
+        },
+        {
+          "name": "Kryokomprimované nanoporézní materiály",
+          "description": "Kombinace kryogenního chlazení a vysokého tlaku s nanoporézními adsorbenty. Potenciál pro velmi vysokou hustotu skladování.",
+          "physics": "Využívá synergii mezi vysokým tlakem, nízkou teplotou a adsorpcí v nanoporézních materiálech pro dosažení extrémně vysoké hustoty skladování.",
+          "chemistry": "Kombinace fyzikální adsorpce a komprese H₂ v nanoporézních materiálech (např. MOF, aktivní uhlí) při kryogenních teplotách.",
+          "engineering": "Vyžaduje vývoj pokročilých kryogenních systémů a vysokotlakých nádob kompatibilních s nanoporézními materiály.",
+          "advantages": [
+            "Potenciál pro velmi vysokou volumetrickou hustotu skladování",
+            "Možnost dosažení hustoty kapalného vodíku při mírnějších podmínkách",
+            "Flexibilita v provozních podmínkách"
+          ],
+          "disadvantages": [
+            "Komplexní systém vyžadující pokročilé technologie",
+            "Vysoké energetické nároky na chlazení a kompresi",
+            "Zatím ve fázi základního výzkumu"
+          ],
+          "suitabilityForP2P": "Nízká v současnosti, ale s vysokým potenciálem pro budoucí P2P aplikace 5-10MWp vyžadující extrémně vysokou hustotu skladování.",
+          "futureProspects": "Výzkum se zaměřuje na vývoj nových nanoporézních materiálů optimalizovaných pro kryokomprimované podmínky. Potenciál pro revoluci ve skladování vodíku pro mobilní i stacionární aplikace."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,441 @@
+{
+  "name": "Výroba",
+  "description": "Metody produkce vodíku pro P2P aplikace.",
+  "technologies": [
+    {
+      "name": "Elektrolýza",
+      "description": "Proces využívající elektrickou energii k rozkladu vody na vodík a kyslík. Vhodné pro P2P řešení v celém rozsahu 100kWp až 10MWp, zejména při využití přebytečné obnovitelné energie.",
+      "physics": "Elektrolýza využívá stejnosměrný elektrický proud k rozkladu molekul vody. Elektrony jsou dodávány do systému, což umožňuje překonat aktivační energii pro štěpení vazeb H-O.",
+      "chemistry": "Celková reakce: 2H₂O → 2H₂ + O₂",
+      "subtechnologies": [
+        {
+          "name": "Alkalická elektrolýza",
+          "description": "Používá alkalický elektrolyt. Vhodná pro větší instalace, efektivní v rozsahu 1-10MWp.",
+          "physics": "Využívá vodivost hydroxidových iontů (OH⁻) v alkalickém roztoku, typicky KOH nebo NaOH. Elektrody jsou odděleny porézní membránou propustnou pro OH⁻ ionty.",
+          "chemistry": "Katoda: 2H₂O + 2e⁻ → H₂ + 2OH⁻\nAnoda: 2OH⁻ → ½O₂ + H₂O + 2e⁻",
+          "subtechnologies": [
+            {
+              "name": "Tradiční alkalická",
+              "description": "Nejstarší technologie, robustní ale méně účinná. Vhodná pro stálý provoz ve větším měřítku, méně vhodná pro flexibilní P2P aplikace.",
+              "physics": "Pracuje při atmosférickém tlaku a teplotách 60-80°C. Využívá niklové elektrody s katalytickými povlaky.",
+              "chemistry": "Elektrolyt: 20-30% roztok KOH. Katoda často obsahuje katalyzátory na bázi Ni-Mo, anoda může být potažena Co₃O₄ nebo NiFeOx.",
+              "advantages": [
+                "Osvědčená technologie",
+                "Nízké investiční náklady",
+                "Dlouhá životnost"
+              ],
+              "disadvantages": [
+                "Nižší účinnost",
+                "Omezená flexibilita",
+                "Vyžaduje konstantní zátěž"
+              ],
+              "suitabilityForP2P": "Střední. Vhodná pro stabilní P2P aplikace 1-10MWp s konstantním provozem."
+            },
+            {
+              "name": "Pokročilá alkalická",
+              "description": "Vylepšená verze s vyšší účinností a flexibilitou. Lépe se hodí pro P2P aplikace v rozsahu 1-10MWp.",
+              "physics": "Využívá pokročilé materiály elektrod a optimalizovaný design pro snížení vzdálenosti mezi elektrodami. Může pracovat při vyšších teplotách (až 100°C) a tlacích.",
+              "chemistry": "Používá vysoce aktivní katalyzátory, např. Ni-Fe nebo Co-P na katodě a Ni-Fe-Co sloučeniny na anodě. Elektrolyt může obsahovat aditiva pro zvýšení vodivosti.",
+              "advantages": [
+                "Vyšší účinnost než tradiční",
+                "Lepší dynamické chování",
+                "Nižší provozní náklady"
+              ],
+              "disadvantages": [
+                "Vyšší investiční náklady než tradiční",
+                "Stále omezená flexibilita ve srovnání s PEM"
+              ],
+              "suitabilityForP2P": "Dobrá. Vhodná pro P2P aplikace 1-10MWp s mírně proměnlivým zatížením."
+            }
+          ]
+        },
+        {
+          "name": "PEM elektrolýza",
+          "description": "Využívá polymerní membránu. Vhodná pro menší až střední instalace, ideální pro 100kWp-5MWp.",
+          "physics": "Využívá pevnou polymerní membránu jako elektrolyt, která vede protony (H⁺). Umožňuje kompaktnější design a provoz při vyšších proudových hustotách.",
+          "chemistry": "Anoda: 2H₂O → O₂ + 4H⁺ + 4e⁻\nKatoda: 4H⁺ + 4e⁻ → 2H₂",
+          "subtechnologies": [
+            {
+              "name": "Nízkoteplotní PEM",
+              "description": "Rychlá odezva, vhodná pro proměnlivé zdroje energie. Ideální pro P2P aplikace v rozsahu 100kWp-2MWp.",
+              "physics": "Pracuje při teplotách 50-80°C. Využívá Nafion nebo podobné perfluorované sulfonované ionomery jako membránu.",
+              "chemistry": "Katalyzátory: Pt nebo Pt-Ir na anodě, Pt na katodě. Membrána musí být plně hydratovaná pro optimální protonovou vodivost.",
+              "advantages": [
+                "Vysoká flexibilita",
+                "Rychlá odezva na změny zatížení",
+                "Kompaktní design"
+              ],
+              "disadvantages": [
+                "Vyšší investiční náklady",
+                "Kratší životnost membrány",
+                "Citlivost na nečistoty"
+              ],
+              "suitabilityForP2P": "Výborná. Ideální pro P2P aplikace 100kWp-2MWp s vysoce proměnlivým zatížením."
+            },
+            {
+              "name": "Vysokoteplotní PEM",
+              "description": "Vyšší účinnost, ale složitější provoz. Vhodná pro stabilnější P2P aplikace v rozsahu 1-5MWp.",
+              "physics": "Operuje při teplotách 120-200°C. Využívá membrány na bázi polybenzimidazolu (PBI) dopované kyselinou fosforečnou.",
+              "chemistry": "Vyšší teplota umožňuje použití méně vzácných katalyzátorů, např. slitiny Pt s přechodnými kovy na anodě. Katoda stále vyžaduje Pt.",
+              "advantages": [
+                "Vyšší celková účinnost",
+                "Lepší tepelná integrace",
+                "Potenciál pro nižší náklady"
+              ],
+              "disadvantages": [
+                "Složitější systém",
+                "Méně flexibilní než nízkoteplotní PEM",
+                "Technologie v ranějším stádiu vývoje"
+              ],
+              "suitabilityForP2P": "Dobrá. Vhodná pro P2P aplikace 1-5MWp se stabilnějším provozem a možností využití odpadního tepla."
+            }
+          ]
+        },
+        {
+          "name": "Elektrolýza pevných oxidů",
+          "description": "Vysokoteplotní proces s vysokou účinností. Vhodná pro větší instalace, 5-10MWp.",
+          "physics": "Pracuje při velmi vysokých teplotách (600-1000°C), využívá keramický elektrolyt vodivý pro kyslíkové ionty. Vysoká teplota snižuje elektrickou energii potřebnou pro elektrolýzu.",
+          "chemistry": "Katoda: H₂O + 2e⁻ → H₂ + O²⁻\nAnoda: O²⁻ → ½O₂ + 2e⁻",
+          "subtechnologies": [
+            {
+              "name": "Kyslíkové iontově vodivé",
+              "description": "Nejvyšší účinnost, ale pomalejší start. Vhodné pro stálý provoz ve větších P2P systémech 5-10MWp.",
+              "physics": "Využívá elektrolyt z yttriem stabilizovaného zirkonia (YSZ), který vede kyslíkové ionty při vysokých teplotách.",
+              "chemistry": "Katoda často z nikl-YSZ cermetu, anoda z perovskitových materiálů jako La₁-ₓSrₓMnO₃-δ (LSM). Může využívat páru místo kapalné vody.",
+              "advantages": [
+                "Nejvyšší elektrická účinnost",
+                "Možnost reverzibilního provozu",
+                "Potenciál pro využití odpadního tepla"
+              ],
+              "disadvantages": [
+                "Dlouhá doba náběhu",
+                "Složitý teplotní management",
+                "Omezená životnost při cyklování"
+              ],
+              "suitabilityForP2P": "Střední. Vhodná pro velké P2P aplikace 5-10MWp s konstantním provozem a využitím odpadního tepla."
+            },
+            {
+              "name": "Protonově vodivé",
+              "description": "Nižší provozní teplota, rychlejší start. Potenciálně vhodné pro flexibilnější P2P aplikace 2-5MWp, ale technologie je méně vyspělá.",
+              "physics": "Využívá elektrolyty vodivé pro protony, např. yttrium-dopovaný barium zirkonát (BZY) nebo barium cerát (BCY). Pracuje při nižších teplotách (400-600°C) než kyslíkové iontově vodivé systémy.",
+              "chemistry": "Anoda: 2H₂O → O₂ + 4H⁺ + 4e⁻\nKatoda: 4H⁺ + 4e⁻ → 2H₂\nElektrolytem procházejí protony místo kyslíkových iontů.",
+              "advantages": [
+                "Nižší provozní teplota než kyslíkové iontově vodivé",
+                "Rychlejší start a lepší dynamika",
+                "Produkce suchého vodíku"
+              ],
+              "disadvantages": [
+                "Méně vyspělá technologie",
+                "Nižší účinnost než kyslíkové iontově vodivé",
+                "Omezená dlouhodobá stabilita"
+              ],
+              "suitabilityForP2P": "Potenciálně dobrá. Může být vhodná pro P2P aplikace 2-5MWp s proměnlivějším zatížením, ale technologie vyžaduje další vývoj."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Termochemické",
+      "description": "Využívá teplo k produkci vodíku z různých zdrojů. Méně vhodné pro P2P řešení v daném rozsahu kvůli složitosti a velikosti zařízení.",
+      "physics": "Využívá vysokoteplotní chemické reakce k rozkladu vody nebo uhlovodíků na vodík. Často vyžaduje více kroků a komplexní systémy pro separaci plynů.",
+      "chemistry": "Obecně zahrnuje endotermické reakce štěpení vazeb a následné exotermické reakce tvorby vodíku.",
+      "subtechnologies": [
+        {
+          "name": "Parní reforming methanu",
+          "description": "Průmyslový standard pro výrobu vodíku. Příliš velké pro dané P2P aplikace, typicky >50MWp.",
+          "physics": "Využívá vysokoteplotní reakce methanu s vodní párou v přítomnosti katalyzátoru. Proces probíhá ve dvou hlavních krocích: reforming a water-gas shift reakce.",
+          "chemistry": "CH₄ + H₂O ⇌ CO + 3H₂ (reforming, endotermický)\nCO + H₂O ⇌ CO₂ + H₂ (water-gas shift, exotermický)",
+          "subtechnologies": [
+            {
+              "name": "Konvenční SMR",
+              "description": "Nejběžnější metoda výroby vodíku. Nevhodná pro P2P v daném rozsahu kvůli velikosti a emisím CO2.",
+              "physics": "Reakce probíhají v trubkových reaktorech při teplotách 700-1000°C a tlacích 3-25 bar. Využívá niklové katalyzátory na nosiči z aluminy.",
+              "chemistry": "Celková reakce: CH₄ + 2H₂O → CO₂ + 4H₂\nVyžaduje následné čištění vodíku, obvykle pomocí PSA (pressure swing adsorption).",
+              "advantages": [
+                "Vysoká účinnost",
+                "Nízké provozní náklady",
+                "Osvědčená technologie"
+              ],
+              "disadvantages": [
+                "Vysoké emise CO2",
+                "Vyžaduje velké měřítko pro ekonomickou efektivitu",
+                "Není flexibilní pro proměnlivé zatížení"
+              ],
+              "suitabilityForP2P": "Nízká. Příliš velké a neflexibilní pro P2P aplikace 100kWp-10MWp."
+            },
+            {
+              "name": "Autotermální reforming",
+              "description": "Kompaktnější než SMR, ale stále příliš velký pro dané P2P aplikace. Vhodnější pro >20MWp.",
+              "physics": "Kombinuje parní reforming s částečnou oxidací methanu. Exotermická oxidace poskytuje teplo pro endotermický reforming, což umožňuje kompaktnější design.",
+              "chemistry": "2CH₄ + O₂ → 2CO + 4H₂ (částečná oxidace)\nCH₄ + H₂O ⇌ CO + 3H₂ (reforming)\nCO + H₂O ⇌ CO₂ + H₂ (water-gas shift)",
+              "advantages": [
+                "Kompaktnější než konvenční SMR",
+                "Nižší emise CO2 než SMR",
+                "Vyšší flexibilita"
+              ],
+              "disadvantages": [
+                "Složitější proces",
+                "Vyžaduje kyslík",
+                "Stále příliš velké pro menší P2P aplikace"
+              ],
+              "suitabilityForP2P": "Nízká. Přestože je flexibilnější než SMR, stále je příliš velké pro P2P aplikace 100kWp-10MWp."
+            }
+          ]
+        },
+        {
+          "name": "Zplyňování uhlí",
+          "description": "Produkce vodíku z uhlí. Nevhodné pro P2P řešení kvůli emisím a velikosti zařízení.",
+          "physics": "Využívá částečnou oxidaci uhlí při vysokých teplotách (>700°C) a tlacích. Proces vytváří syntézní plyn (směs CO a H₂), který je dále zpracován na čistý vodík.",
+          "chemistry": "C + H₂O → CO + H₂ (hlavní reakce zplyňování)\nCO + H₂O ⇌ CO₂ + H₂ (water-gas shift)",
+          "subtechnologies": [
+            {
+              "name": "Zplyňování s pevným ložem",
+              "description": "Jednoduchý proces, ale neefektivní. Nevhodné pro P2P aplikace v jakémkoli měřítku.",
+              "physics": "Uhlí je v pevném loži, zplyňovací médium (vzduch, kyslík nebo pára) prochází skrz. Různé zóny v reaktoru: sušení, pyrolýza, redukce a oxidace.",
+              "chemistry": "Produkuje velké množství dehtu: CₙHₘ → nC + (m/2)H₂\nRedukce: C + CO₂ ⇌ 2CO, C + H₂O ⇌ CO + H₂",
+              "advantages": [
+                "Jednoduchý proces",
+                "Nízké investiční náklady",
+                "Vhodné pro malé měřítko"
+              ],
+              "disadvantages": [
+                "Nízká účinnost",
+                "Vysoké emise",
+                "Produkce dehtu"
+              ],
+              "suitabilityForP2P": "Velmi nízká. Nevhodné pro moderní P2P aplikace kvůli nízké účinnosti a vysokým emisím."
+            },
+            {
+              "name": "Zplyňování s fluidním ložem",
+              "description": "Lepší účinnost než pevné lože, ale stále nevhodné pro P2P aplikace.",
+              "physics": "Uhlí je suspendováno v proudu zplyňovacího média. Lepší přenos tepla a hmoty díky intenzivnímu míchání.",
+              "chemistry": "Podobné reakce jako u pevného lože, ale s lepší distribucí: C + ½O₂ → CO, C + O₂ → CO₂, C + 2H₂ → CH₄",
+              "advantages": [
+                "Vyšší účinnost než pevné lože",
+                "Lepší přenos tepla a hmoty",
+                "Flexibilnější provoz"
+              ],
+              "disadvantages": [
+                "Složitější proces",
+                "Vyšší investiční náklady",
+                "Stále významné emise"
+              ],
+              "suitabilityForP2P": "Nízká. Přestože je lepší než pevné lože, stále není vhodné pro P2P aplikace 100kWp-10MWp kvůli emisím a velikosti."
+            },
+            {
+              "name": "Zplyňování s unášivým proudem",
+              "description": "Nejúčinnější metoda zplyňování uhlí, ale příliš velká a složitá pro P2P aplikace.",
+              "physics": "Jemně mleté uhlí je unášeno proudem zplyňovacího média při vysokých teplotách (>1300°C) a tlacích. Velmi krátká reakční doba (sekundy).",
+              "chemistry": "Rychlé reakce při vysokých teplotách: C + H₂O → CO + H₂, C + CO₂ → 2CO\nMinimální tvorba dehtu díky vysokým teplotám.",
+              "advantages": [
+                "Nejvyšší účinnost ze zplyňovacích metod",
+                "Vhodné pro velké měřítko",
+                "Nízký obsah dehtu v produktu"
+              ],
+              "disadvantages": [
+                "Velmi vysoké investiční náklady",
+                "Složitý proces",
+                "Vyžaduje jemně mleté uhlí"
+              ],
+              "suitabilityForP2P": "Velmi nízká. Příliš velké a složité pro P2P aplikace 100kWp-10MWp, vhodné spíše pro centralizovanou výrobu vodíku."
+            }
+          ]
+        },
+        {
+          "name": "Zplyňování biomasy",
+          "description": "Produkce vodíku z organického materiálu. Potenciálně vhodné pro větší P2P aplikace, 5-10MWp.",
+          "physics": "Podobné uhelným procesům, ale s nižšími teplotami (700-1000°C) kvůli nižší teplotě tavení popela biomasy. Využívá různé typy biomasy včetně dřeva, zemědělských zbytků a odpadů.",
+          "chemistry": "Komplexní směs reakcí zahrnující pyrolýzu, oxidaci a redukci. Hlavní reakce: C₆H₁₀O₅ + H₂O → CO + CO₂ + H₂ + CH₄ + další uhlovodíky",
+          "subtechnologies": [
+            {
+              "name": "Přímé zplyňování",
+              "description": "Jednodušší proces, potenciálně vhodný pro P2P aplikace 5-10MWp v oblastech s dostupnou biomasou.",
+              "physics": "Biomasa a zplyňovací médium (vzduch, kyslík nebo pára) vstupují do stejného reaktoru. Typicky využívá fluidní lože pro lepší kontakt.",
+              "chemistry": "Zahrnuje pyrolýzu: C₆H₁₀O₅ → H₂O + C₆H₈O + plyny\nNásledované zplyňováním: C₆H₈O + O₂/H₂O → CO + H₂ + CO₂ + CH₄",
+              "advantages": [
+                "Jednodušší proces",
+                "Nižší investiční náklady",
+                "Vhodné pro menší měřítka"
+              ],
+              "disadvantages": [
+                "Nižší účinnost",
+                "Vyšší obsah dehtu v produktu",
+                "Omezená flexibilita"
+              ],
+              "suitabilityForP2P": "Střední. Může být vhodné pro P2P aplikace 5-10MWp v oblastech s dostatkem biomasy a stabilní poptávkou."
+            },
+            {
+              "name": "Nepřímé zplyňování",
+              "description": "Složitější, ale čistší proces. Může být vhodný pro P2P aplikace 5-10MWp s přísnějšími emisními požadavky.",
+              "physics": "Využívá dva oddělené reaktory: jeden pro spalování biomasy a druhý pro zplyňování. Teplo je přenášeno mezi reaktory pomocí cirkulujícího média (obvykle písek).",
+              "chemistry": "Spalovací reaktor: C₆H₁₀O₅ + O₂ → CO₂ + H₂O + teplo\nZplyňovací reaktor: C₆H₁₀O₅ + H₂O/CO₂ → CO + H₂ + CH₄",
+              "advantages": [
+                "Vyšší čistota produktu",
+                "Nižší obsah dehtu",
+                "Lepší kontrola procesu"
+              ],
+              "disadvantages": [
+                "Složitější proces",
+                "Vyšší investiční náklady",
+                "Vyžaduje více pomocných zařízení"
+              ],
+              "suitabilityForP2P": "Střední až dobrá. Vhodné pro P2P aplikace 5-10MWp s přísnějšími požadavky na čistotu vodíku a emisní limity."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Fotolytické",
+      "description": "Přímá produkce vodíku ze slunečního záření. Zatím nevhodné pro praktické P2P aplikace kvůli nízké účinnosti a raném stádiu vývoje.",
+      "physics": "Využívá energii fotonů k přímému štěpení molekul vody. Vyžaduje materiály schopné absorbovat široké spektrum slunečního záření a efektivně separovat náboje.",
+      "chemistry": "Obecná reakce: 2H₂O + sluneční energie → 2H₂ + O₂",
+      "subtechnologies": [
+        {
+          "name": "Fotoelektrochemické",
+          "description": "Využívá polovodiče k přímé produkci vodíku ze slunečního záření a vody. Potenciál pro budoucí P2P aplikace, ale zatím nevhodné.",
+          "physics": "Foton generuje pár elektron-díra v polovodiči. Elektrony redukují vodu na vodík, zatímco díry oxidují vodu na kyslík.",
+          "chemistry": "Fotoanoda: 2H₂O + 4h⁺ → O₂ + 4H⁺\nFotokatoda: 4H⁺ + 4e⁻ → 2H₂",
+          "subtechnologies": [
+            {
+              "name": "Jednoduchý polovodič",
+              "description": "Nejjednodušší design, ale nízká účinnost. Nevhodné pro současné P2P aplikace.",
+              "physics": "Využívá jeden polovodičový materiál pro absorpci světla a katalýzu reakce. Vyžaduje materiál s vhodným zakázaným pásem a stabilitu ve vodě.",
+              "chemistry": "Typické materiály: TiO₂, WO₃, Fe₂O₃. Např. pro TiO₂: TiO₂ + 2h⁺ + H₂O → 2H⁺ + ½O₂, 2H⁺ + 2e⁻ → H₂",
+              "advantages": [
+                "Jednoduchý design",
+                "Potenciálně nízké náklady",
+                "Přímá přeměna sluneční energie na vodík"
+              ],
+              "disadvantages": [
+                "Velmi nízká účinnost",
+                "Nestabilita materiálů",
+                "Krátká životnost"
+              ],
+              "suitabilityForP2P": "Velmi nízká. V současnosti nevhodné pro praktické P2P aplikace kvůli nízké účinnosti a stabilitě."
+            },
+            {
+              "name": "Tandemový článek",
+              "description": "Vyšší účinnost, ale složitější. Potenciál pro budoucí P2P aplikace, ale současně nevhodné.",
+              "physics": "Kombinuje dva nebo více polovodičů s různými zakázanými pásy pro lepší využití slunečního spektra. Typicky využívá kombinaci širokopásmového a úzkopásmového polovodiče.",
+              "chemistry": "Příklad: BiVO₄ (fotoanoda) + Cu₂O (fotokatoda). BiVO₄ + h⁺ + H₂O → O₂ + 2H⁺, Cu₂O + 2e⁻ + 2H⁺ → H₂ + Cu₂O",
+              "advantages": [
+                "Vyšší účinnost než jednoduchý polovodič",
+                "Lepší využití slunečního spektra",
+                "Potenciál pro vyšší stabilitu"
+              ],
+              "disadvantages": [
+                "Složitější design",
+                "Vyšší výrobní náklady",
+                "Stále nízká celková účinnost"
+              ],
+              "suitabilityForP2P": "Nízká. Přestože je lepší než jednoduchý polovodič, stále není vhodné pro současné P2P aplikace. Potenciál pro budoucí využití."
+            }
+          ]
+        },
+        {
+          "name": "Fotobiologické",
+          "description": "Využívá mikroorganismy k produkci vodíku. Velmi nízká účinnost, nevhodné pro praktické P2P aplikace.",
+          "physics": "Využívá fotosyntetické nebo nefotosyntetické mikroorganismy k produkci vodíku. Světlo je absorbováno pigmenty a energie je využita k tvorbě vodíku pomocí enzymů.",
+          "chemistry": "Obecná reakce: 2H⁺ + 2e⁻ → H₂ (katalyzováno hydrogenázou nebo nitrogenázou)",
+          "subtechnologies": [
+            {
+              "name": "Přímá biofotolýza",
+              "description": "Nejjednodušší biologický proces, ale extrémně neúčinný. Nevhodné pro P2P aplikace.",
+              "physics": "Využívá fotosyntetické organismy (typicky zelené řasy) k přímé produkci vodíku ze slunečního záření a vody.",
+              "chemistry": "2H₂O + sluneční energie → 2H₂ + O₂ (katalyzováno hydrogenázou)\nProblém: hydrogenáza je inhibována kyslíkem produkovaným během fotosyntézy.",
+              "advantages": [
+                "Přímá produkce vodíku z vody a slunečního záření",
+                "Potenciálně nízké náklady",
+                "Environmentálně šetrný proces"
+              ],
+              "disadvantages": [
+                "Extrémně nízká účinnost",
+                "Citlivost na kyslík",
+                "Obtížná škálovatelnost"
+              ],
+              "suitabilityForP2P": "Velmi nízká. Nevhodné pro jakékoliv praktické P2P aplikace kvůli extrémně nízké účinnosti."
+            },
+            {
+              "name": "Nepřímá biofotolýza",
+              "description": "Mírně účinnější než přímá, ale stále nevhodná pro praktické P2P aplikace.",
+              "physics": "Dvoustupňový proces: 1) fixace CO₂ pomocí fotosyntézy, 2) fermentace uhlohydrátů na vodík v anaerobních podmínkách.",
+              "chemistry": "1) 6CO₂ + 6H₂O + sluneční energie → C₆H₁₂O₆ + 6O₂\n2) C₆H₁₂O₆ + 6H₂O → 12H₂ + 6CO₂ (katalyzováno hydrogenázou nebo nitrogenázou)",
+              "advantages": [
+                "Oddělení produkce kyslíku a vodíku",
+                "Potenciálně vyšší účinnost než přímá biofotolýza",
+                "Možnost využití širšího spektra mikroorganismů"
+              ],
+              "disadvantages": [
+                "Složitější proces",
+                "Stále velmi nízká celková účinnost",
+                "Vyžaduje velké plochy pro produkci"
+              ],
+              "suitabilityForP2P": "Velmi nízká. Přestože je mírně lepší než přímá biofotolýza, stále není vhodná pro praktické P2P aplikace."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Další metody",
+      "description": "Experimentální a méně běžné metody výroby vodíku, většinou ve fázi výzkumu nebo raného vývoje.",
+      "physics": "Zahrnuje různé fyzikální a chemické principy, často kombinující nové materiály a pokročilé technologie.",
+      "chemistry": "Různé chemické reakce v závislosti na konkrétní metodě.",
+      "subtechnologies": [
+        {
+          "name": "Plazmové reformování",
+          "description": "Využívá plazma pro reformování uhlovodíků. Potenciálně vhodné pro menší až střední P2P aplikace, ale technologie je v ranném stádiu.",
+          "physics": "Využívá vysokoteplotní plazma (5000-10000°C) k rozkladu uhlovodíků na vodík a uhlík. Extrémní teploty umožňují rychlé reakce bez katalyzátorů.",
+          "chemistry": "CₙHₘ + plazma → nC + (m/2)H₂\nMůže zahrnovat i částečnou oxidaci: CₙHₘ + (n/2)O₂ → nCO + (m/2)H₂",
+          "advantages": [
+            "Rychlé reakce",
+            "Možnost zpracování různých uhlovodíků",
+            "Potenciál pro nízké emise CO₂"
+          ],
+          "disadvantages": [
+            "Vysoká energetická náročnost",
+            "Technologická složitost",
+            "Omezené praktické zkušenosti"
+          ],
+          "suitabilityForP2P": "Nízká až střední. Potenciál pro budoucí P2P aplikace 1-5MWp, ale vyžaduje další vývoj a optimalizaci."
+        },
+        {
+          "name": "Fotoelektrokatalytické štěpení vody",
+          "description": "Kombinace fotoelektrochemických a elektrokatalytických procesů. Potenciál pro menší P2P aplikace v budoucnosti.",
+          "physics": "Využívá polovodičové fotoelektrody v kombinaci s elektrokatalyzátory. Sluneční záření generuje náboje, které jsou následně využity pro elektrolýzu vody.",
+          "chemistry": "Fotoanoda: 2H₂O + 4h⁺ → O₂ + 4H⁺\nFotokatoda: 4H⁺ + 4e⁻ → 2H₂\nElektrokatalyzátory optimalizují přenos náboje na rozhraní elektroda-elektrolyt.",
+          "advantages": [
+            "Potenciál pro vyšší účinnost než samostatné fotolytické metody",
+            "Možnost ladění vlastností materiálů",
+            "Nižší elektrické napětí než konvenční elektrolýza"
+          ],
+          "disadvantages": [
+            "Složitý systém",
+            "Omezená stabilita materiálů",
+            "Zatím nízká celková účinnost"
+          ],
+          "suitabilityForP2P": "Nízká v současnosti, ale s potenciálem. Může být vhodné pro budoucí P2P aplikace 100kWp-1MWp v oblastech s vysokým slunečním zářením."
+        },
+        {
+          "name": "Termochemické cykly",
+          "description": "Využívá sérii chemických reakcí poháněných teplem pro rozklad vody. Potenciálně vhodné pro velké P2P aplikace s dostupností vysokoteplotního tepla.",
+          "physics": "Zahrnuje několik chemických reakcí při různých teplotách, obvykle v rozmezí 400-2000°C. Teplo může být dodáváno z různých zdrojů, včetně solárních koncentrátorů nebo jaderných reaktorů.",
+          "chemistry": "Příklad (S-I cyklus):\n1) 2H₂SO₄ → 2SO₂ + 2H₂O + O₂ (800-1000°C)\n2) I₂ + SO₂ + 2H₂O → 2HI + H₂SO₄ (120°C)\n3) 2HI → I₂ + H₂ (300-450°C)",
+          "advantages": [
+            "Potenciál pro vysokou účinnost",
+            "Možnost využití odpadního tepla z průmyslových procesů",
+            "Nepotřebuje vzácné katalyzátory"
+          ],
+          "disadvantages": [
+            "Velmi vysoké teplotní požadavky",
+            "Složitý proces s několika kroky",
+            "Korozivní chemikálie a materiálové problémy"
+          ],
+          "suitabilityForP2P": "Nízká pro většinu P2P aplikací. Potenciálně vhodné pro velmi velké systémy (>10MWp) s dostupným zdrojem vysokoteplotního tepla."
+        }
+      ]
+    }
+  ]
+}

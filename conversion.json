@@ -1,0 +1,274 @@
+{
+  "name": "Konverze",
+  "description": "Metody přeměny vodíku zpět na elektrickou energii pro P2P aplikace.",
+  "technologies": [
+    {
+      "name": "Palivové články",
+      "description": "Přímá přeměna chemické energie vodíku na elektrickou energii. Vhodné pro P2P aplikace v celém rozsahu 100kWp až 10MWp.",
+      "physics": "Palivové články fungují na principu elektrochemické reakce mezi vodíkem a kyslíkem. Tato reakce je opakem elektrolýzy a probíhá za vzniku elektrického proudu, tepla a vody.",
+      "chemistry": "2H₂ + O₂ → 2H₂O + elektrická energie + teplo",
+      "subtechnologies": [
+        {
+          "name": "PEM palivové články",
+          "description": "Nejběžnější typ pro mobilní i stacionární aplikace. Vhodné pro celý rozsah P2P aplikací.",
+          "physics": "Využívají polymerní membránu jako elektrolyt, která umožňuje průchod protonů. Elektrony jsou nuceny procházet vnějším obvodem, čímž vzniká elektrický proud.",
+          "chemistry": "Anoda: 2H₂ → 4H⁺ + 4e⁻\nKatoda: O₂ + 4H⁺ + 4e⁻ → 2H₂O",
+          "subtechnologies": [
+            {
+              "name": "Nízkoteplotní PEM",
+              "description": "Rychlý start, vhodné pro proměnlivé zatížení. Ideální pro P2P aplikace 100kWp-5MWp.",
+              "physics": "Operují při teplotách 60-80°C, což umožňuje rychlý start a dobrou dynamickou odezvu.",
+              "chemistry": "Využívají platinové katalyzátory pro urychlení reakcí. Vyžadují velmi čistý vodík (>99.99%) kvůli citlivosti na CO.",
+              "advantages": [
+                "Rychlý start a odezva",
+                "Vysoká účinnost při částečném zatížení",
+                "Kompaktní design"
+              ],
+              "disadvantages": [
+                "Citlivost na nečistoty (zejména CO)",
+                "Vyžaduje drahé katalyzátory",
+                "Omezená životnost membrány"
+              ],
+              "suitabilityForP2P": "Výborná. Ideální pro P2P aplikace 100kWp-5MWp s častými starty a proměnlivým zatížením."
+            },
+            {
+              "name": "Vysokoteplotní PEM",
+              "description": "Vyšší účinnost, ale pomalejší start. Vhodné pro stabilnější P2P aplikace 1-10MWp.",
+              "physics": "Pracují při teplotách 120-180°C, což zvyšuje rychlost reakcí a toleranci k nečistotám.",
+              "chemistry": "Používají modifikované membrány (např. polybenzimidazol dopovaný kyselinou fosforečnou) odolné vůči vyšším teplotám. Mají vyšší toleranci k CO (až 3%).",
+              "advantages": [
+                "Vyšší celková účinnost",
+                "Lepší tolerance k nečistotám",
+                "Možnost kogenerace"
+              ],
+              "disadvantages": [
+                "Pomalejší start",
+                "Složitější systém",
+                "Vyšší degradace při cyklování"
+              ],
+              "suitabilityForP2P": "Dobrá. Vhodné pro P2P aplikace 1-10MWp se stabilnějším provozem a možností využití odpadního tepla."
+            }
+          ]
+        },
+        {
+          "name": "Palivové články s pevnými oxidy (SOFC)",
+          "description": "Vysoká účinnost, vhodné pro větší stacionární aplikace. Ideální pro P2P systémy 1-10MWp.",
+          "physics": "Pracují při velmi vysokých teplotách (600-1000°C), což eliminuje potřebu drahých katalyzátorů a umožňuje přímé využití uhlovodíkových paliv.",
+          "chemistry": "Elektrolyt je pevný keramický materiál (obvykle ZrO₂ dopovaný Y₂O₃), který vede kyslíkové ionty. \nAnoda: 2H₂ + 2O²⁻ → 2H₂O + 4e⁻\nKatoda: O₂ + 4e⁻ → 2O²⁻",
+          "subtechnologies": [
+            {
+              "name": "Planární SOFC",
+              "description": "Vyšší výkonová hustota, jednodušší výroba. Vhodné pro P2P aplikace 1-5MWp.",
+              "physics": "Používají ploché desky elektrolytu s elektrodami na obou stranách, skládané do kompaktních stacků.",
+              "chemistry": "Často využívají anody na bázi niklu (Ni-YSZ cermet) a katody z perovskitových materiálů (např. LSM).",
+              "advantages": [
+                "Vysoká elektrická účinnost",
+                "Možnost využití různých paliv",
+                "Nižší výrobní náklady než tubulární"
+              ],
+              "disadvantages": [
+                "Problémy s těsněním",
+                "Citlivost na tepelné cykly",
+                "Dlouhá doba náběhu"
+              ],
+              "suitabilityForP2P": "Dobrá pro větší systémy. Vhodné pro P2P aplikace 1-5MWp s kontinuálním provozem."
+            },
+            {
+              "name": "Tubulární SOFC",
+              "description": "Lepší tepelná odolnost, vhodné pro větší P2P systémy 5-10MWp.",
+              "physics": "Využívají trubicovitý design, kde je elektrolyt nanesený na porézní katodovou trubku. Anoda je na vnější straně.",
+              "chemistry": "Podobné materiály jako planární SOFC, ale s optimalizovanou geometrií pro lepší distribuci napětí a toku plynů.",
+              "advantages": [
+                "Vyšší odolnost vůči tepelným cyklům",
+                "Lepší těsnění",
+                "Vyšší životnost"
+              ],
+              "disadvantages": [
+                "Nižší výkonová hustota",
+                "Vyšší výrobní náklady",
+                "Složitější systémová integrace"
+              ],
+              "suitabilityForP2P": "Dobrá pro velké systémy. Ideální pro P2P aplikace 5-10MWp s kontinuálním provozem a dlouhou životností."
+            }
+          ]
+        },
+        {
+          "name": "Alkalické palivové články (AFC)",
+          "description": "Vysoká účinnost, nízké náklady na materiály. Méně vhodné pro P2P aplikace kvůli citlivosti na CO2.",
+          "physics": "Využívají alkalický elektrolyt (typicky KOH) a operují při teplotách 60-90°C.",
+          "chemistry": "Anoda: 2H₂ + 4OH⁻ → 4H₂O + 4e⁻\nKatoda: O₂ + 2H₂O + 4e⁻ → 4OH⁻",
+          "subtechnologies": [
+            {
+              "name": "Tradiční AFC",
+              "description": "Vysoká účinnost, ale problémy s elektrolytem. Omezené využití v moderních P2P aplikacích.",
+              "physics": "Používají tekutý elektrolyt KOH, který je náchylný k reakci s CO2 za tvorby K2CO3, což snižuje vodivost.",
+              "chemistry": "2KOH + CO₂ → K₂CO₃ + H₂O",
+              "advantages": [
+                "Vysoká elektrická účinnost",
+                "Možnost použití nekatalytických kovů",
+                "Nízké náklady na materiály"
+              ],
+              "disadvantages": [
+                "Extrémní citlivost na CO2",
+                "Problémy s kapalným elektrolytem",
+                "Omezená životnost"
+              ],
+              "suitabilityForP2P": "Nízká. Nevhodné pro většinu moderních P2P aplikací kvůli problémům s CO2 a elektrolytem."
+            },
+            {
+              "name": "Alkalické membránové FC",
+              "description": "Řeší některé problémy tradičních AFC. Potenciál pro budoucí P2P aplikace 100kWp-1MWp.",
+              "physics": "Využívají pevnou polymerní membránu s aniontovou vodivostí, což eliminuje problém s tekutým elektrolytem.",
+              "chemistry": "Membrány obsahují kvarterní amoniové skupiny pro vedení OH⁻ iontů. Reakce jsou podobné tradičním AFC, ale s lepší odolností vůči CO2.",
+              "advantages": [
+                "Nižší citlivost na CO2 než tradiční AFC",
+                "Pevný elektrolyt eliminuje problémy s kapalinou",
+                "Potenciál pro nižší náklady než PEM"
+              ],
+              "disadvantages": [
+                "Nižší vodivost než PEM",
+                "Omezená dlouhodobá stabilita",
+                "Technologie v ranějším stádiu vývoje"
+              ],
+              "suitabilityForP2P": "Střední s potenciálem pro zlepšení. Může být vhodné pro budoucí P2P aplikace 100kWp-1MWp, pokud se vyřeší problémy se stabilitou."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Spalování",
+      "description": "Méně účinné než palivové články, ale využitelné v určitých aplikacích.",
+      "physics": "Spalování vodíku uvolňuje tepelnou energii, která je následně převedena na mechanickou a elektrickou energii.",
+      "chemistry": "2H₂ + O₂ → 2H₂O + teplo",
+      "subtechnologies": [
+        {
+          "name": "Plynové turbíny",
+          "description": "Vhodné pro větší P2P systémy, 5-10MWp. Nižší účinnost než palivové články, ale vyšší flexibilita.",
+          "physics": "Spalování vodíku pohání turbínu, která roztáčí generátor. Využívají Braytonův cyklus.",
+          "chemistry": "Spalování probíhá za vysokého tlaku a teploty, což vede k vyšší účinnosti, ale také k tvorbě NOx.",
+          "subtechnologies": [
+            {
+              "name": "Difúzní plamenové spalovače",
+              "description": "Stabilní spalování, vhodné pro vysoký obsah vodíku. Použitelné v P2P aplikacích 5-10MWp.",
+              "physics": "Palivo a vzduch se mísí přímo v zóně hoření, což umožňuje stabilní spalování při vysokých teplotách.",
+              "chemistry": "Vytváří lokální oblasti s různými poměry paliva a vzduchu, což vede k vyšší tvorbě NOx, ale lepší stabilitě plamene.",
+              "advantages": [
+                "Stabilní spalování při vysokém obsahu vodíku",
+                "Jednodušší konstrukce",
+                "Široký rozsah provozních podmínek"
+              ],
+              "disadvantages": [
+                "Vyšší emise NOx",
+                "Nižší účinnost při částečném zatížení",
+                "Omezená palivová flexibilita"
+              ],
+              "suitabilityForP2P": "Střední. Vhodné pro větší P2P aplikace 5-10MWp s potřebou flexibility a možností využití směsí s vysokým obsahem vodíku."
+            },
+            {
+              "name": "Předmíchané spalovače",
+              "description": "Nižší emise, vyšší účinnost. Vhodné pro P2P aplikace 5-10MWp s přísnějšími emisními limity.",
+              "physics": "Palivo a vzduch se mísí před vstupem do zóny hoření, což umožňuje homogennější spalování a nižší teploty plamene.",
+              "chemistry": "Homogenní směs vede k nižší tvorbě NOx, ale zvyšuje riziko zpětného zášlehu, zejména při vysokém obsahu vodíku.",
+              "advantages": [
+                "Nižší emise NOx",
+                "Vyšší účinnost spalování",
+                "Lepší výkon při částečném zatížení"
+              ],
+              "disadvantages": [
+                "Riziko zpětného zášlehu při vysokém obsahu vodíku",
+                "Užší rozsah stability spalování",
+                "Složitější konstrukce"
+              ],
+              "suitabilityForP2P": "Dobrá pro specifické aplikace. Vhodné pro P2P systémy 5-10MWp s důrazem na nízké emise a vyšší účinnost."
+            }
+          ]
+        },
+        {
+          "name": "Spalovací motory",
+          "description": "Flexibilní, ale nižší účinnost. Vhodné pro menší P2P aplikace 100kWp-2MWp.",
+          "physics": "Využívají Ottův nebo Dieselův cyklus upravený pro vodík. Spalování vodíku pohání písty, které roztáčejí generátor.",
+          "chemistry": "Spalování vodíku ve vzduchu probíhá velmi rychle, což vyžaduje přesné časování vstřiku a zapalování.",
+          "subtechnologies": [
+            {
+              "name": "Zážehové H2 motory",
+              "description": "Mohou používat čistý vodík. Vhodné pro P2P aplikace 100kWp-1MWp.",
+              "physics": "Využívají Ottův cyklus s úpravami pro vysokou rychlost hoření vodíku. Zapalování jiskrou.",
+              "chemistry": "Vyžadují precizní kontrolu vstřikování vodíku pro prevenci předčasného vznícení a zpětného šlehnutí.",
+              "advantages": [
+                "Možnost použití čistého vodíku",
+                "Nízké emise CO2",
+                "Flexibilní provoz"
+              ],
+              "disadvantages": [
+                "Nižší účinnost než palivové články",
+                "Riziko předčasného zážehu",
+                "Nižší výkonová hustota než benzínové motory"
+              ],
+              "suitabilityForP2P": "Střední. Vhodné pro menší P2P aplikace 100kWp-1MWp s požadavkem na flexibilitu a nízké investiční náklady."
+            },
+            {
+              "name": "Duální H2-Diesel motory",
+              "description": "Využívají směs vodíku a nafty. Potenciálně vhodné pro P2P aplikace 500kWp-2MWp.",
+              "physics": "Kombinují Dieselův cyklus s příměsí vodíku. Nafta slouží jako zapalovací zdroj pro vodík.",
+              "chemistry": "Vodík je vstřikován do sání nebo přímo do válce, kde se mísí se vzduchem. Nafta je vstřikována na konci kompresního zdvihu a iniciuje zapálení směsi.",
+              "advantages": [
+                "Vyšší účinnost než čistě zážehové H2 motory",
+                "Možnost využití existující infrastruktury",
+                "Flexibilní poměr vodíku a nafty"
+              ],
+              "disadvantages": [
+                "Složitější palivový systém",
+                "Stále produkují emise CO2",
+                "Vyžadují dva typy paliva"
+              ],
+              "suitabilityForP2P": "Střední. Mohou být vhodné pro P2P aplikace 500kWp-2MWp jako přechodné řešení nebo v oblastech s omezenou dostupností čistého vodíku."
+            }
+          ]
+        },
+        {
+          "name": "Hořáky",
+          "description": "Spíše pro tepelné aplikace než pro P2P elektrické systémy. Omezené využití v čistě elektrických P2P aplikacích.",
+          "physics": "Přímé spalování vodíku pro produkci tepla. Mohou být součástí kogeneračních systémů.",
+          "chemistry": "Reakce vodíku se vzdušným kyslíkem probíhá za atmosférického tlaku a produkuje teplo a vodní páru.",
+          "subtechnologies": [
+            {
+              "name": "Katalytické hořáky",
+              "description": "Nízké emise, vhodné pro malé aplikace. Omezené využití v P2P elektrických systémech.",
+              "physics": "Využívají katalyzátor (často platinu nebo palladium) k podpoře reakce vodíku s kyslíkem při nižších teplotách.",
+              "chemistry": "Katalytická oxidace vodíku: 2H₂ + O₂ → 2H₂O + teplo (reakce probíhá na povrchu katalyzátoru)",
+              "advantages": [
+                "Velmi nízké emise NOx",
+                "Možnost provozu při nízkých teplotách",
+                "Stabilní spalování i při nízkých koncentracích vodíku"
+              ],
+              "disadvantages": [
+                "Omezený výkonový rozsah",
+                "Degradace katalyzátoru v čase",
+                "Vyšší investiční náklady"
+              ],
+              "suitabilityForP2P": "Nízká pro čistě elektrické P2P. Potenciální využití v kombinovaných systémech pro výrobu elektřiny a tepla v rozsahu 100-500kWp."
+            },
+            {
+              "name": "Radiační hořáky",
+              "description": "Efektivní přenos tepla, ale omezené využití v P2P elektrických aplikacích.",
+              "physics": "Spalování vodíku probíhá na porézním keramickém povrchu, který se rozžhaví a vyzařuje infračervené záření.",
+              "chemistry": "Standardní spalovací reakce vodíku, ale s důrazem na produkci infračerveného záření pro efektivní přenos tepla.",
+              "advantages": [
+                "Účinný přenos tepla radiací",
+                "Možnost dosažení vysokých teplot",
+                "Rovnoměrné rozložení tepla"
+              ],
+              "disadvantages": [
+                "Vyšší emise NOx při vysokých teplotách",
+                "Omezená regulace výkonu",
+                "Primárně pro tepelné aplikace"
+              ],
+              "suitabilityForP2P": "Velmi nízká pro čistě elektrické P2P. Možné využití v kombinovaných systémech pro výrobu elektřiny a vysokoteplotního tepla v rozsahu 500kWp-2MWp, ale s omezenou celkovou účinností konverze na elektřinu."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
